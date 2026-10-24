@@ -1,10 +1,19 @@
+# Ambiente virtual
 .venv/
+venv/
+
+# Cache e arquivos temporários do Python
 __pycache__/
 *.py[cod]
 .pytest_cache/
+
+# Configurações locais do VSCode
 .vscode/
-dist/
+
+# Arquivos de compilação do PyInstaller
 build/
+dist/
 *.spec
-# Ignora a pasta data e todo o seu conteúdo
+
+# Dados locais do jogo
 /data/

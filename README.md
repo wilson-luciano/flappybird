@@ -57,7 +57,7 @@ Se o ambiente virtual já estiver criado, **não é necessário recriá-lo**. Se
 | 01 | Primeira janela Pygame | Aulas 01.0 e 01.1 |
 | 02 | Física, gravidade, salto e animação | Aulas 02.0 e 02.1 |
 | 03 | Obstáculos, colisões e pontuação | Aulas 03.0 e 03.1 |
-| 04 | Vidas, pausa, áudio, recorde e tema | Aulas 04.0 e 04.1 (em elaboração) |
+| 04 | Vidas, pausa, áudio, recorde e tema | Aulas 04.0 e 04.1 |
 | 05 | Testes, documentação e entrega | Planejada |
 
 Os documentos de acompanhamento ficam em [`docs/roadmap.md`](docs/roadmap.md) e [`docs/sprints/`](docs/sprints/).
@@ -85,4 +85,4 @@ Cada estudante deve manter seu próprio repositório, conforme o primeiro envio 
 ## 👨‍🏫 Créditos
 
 © 2026 **Wilson Luciano** · **Programação para Engenharia Mecânica** · **Departamento de Engenharia Mecânica (DMEC)** · **Universidade Federal de Sergipe (UFS)**.  
-Material didático do projeto **Flappy Bird com Python e Pygame** · **README versão 0.4.0 — proposta para conferência**.
+Material didático do projeto **Flappy Bird com Python e Pygame**.
