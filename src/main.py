@@ -3,6 +3,8 @@
 # Código didático: classes, eventos, estados, sprites, áudio e JSON
 # ================================================================
 from pathlib import Path
+import os   # Acessa LOCALAPPDATA para guardar dados persistentes no Windows.
+import sys  # Detecta execução empacotada pelo PyInstaller.
 import json
 import random
 import time
@@ -32,10 +34,21 @@ TEMPO_INVULNERAVEL_MS = 1200
 USAR_MASCARAS = True
 # __file__ é o caminho deste script; parent.parent sobe de src/
 # para a raiz do projeto. Assim os recursos não dependem do terminal.
-RAIZ = Path(__file__).resolve().parent.parent
-IMAGENS = RAIZ / 'assets' / 'imgs'
-AUDIOS = RAIZ / 'assets' / 'audio'
-ARQUIVO_RECORDE = RAIZ / 'data' / 'recorde.json'
+# Os recursos (imagens/sons) são somente leitura; os recordes precisam
+# de um diretório gravável e permanente, mesmo no modo --onefile.
+if getattr(sys, 'frozen', False):
+    # O PyInstaller extrai os recursos incorporados para esta pasta.
+    RAIZ_RECURSOS = Path(sys._MEIPASS)
+    # LOCALAPPDATA persiste entre execuções e não depende de onde o .exe está.
+    pasta_local = os.environ.get('LOCALAPPDATA')
+    RAIZ_DADOS = (Path(pasta_local) if pasta_local else Path.home() / 'AppData' / 'Local') / 'FlappyBird'
+else:
+    # main.py está em src/: subir duas pastas alcança a raiz do projeto.
+    RAIZ_RECURSOS = Path(__file__).resolve().parent.parent
+    RAIZ_DADOS = RAIZ_RECURSOS
+IMAGENS = RAIZ_RECURSOS / 'assets' / 'imgs'
+AUDIOS = RAIZ_RECURSOS / 'assets' / 'audio'
+ARQUIVO_RECORDE = RAIZ_DADOS / 'data' / 'recorde.json'
 # Cada entrada da lista ocupa TEMPO_TEMA segundos. Repetições são
 # intencionais e fazem parte da sequência de fundos do jogo.
 TEMAS = ['bg','bg1','night','bg2','bg3','bg4','bg5','bg6',
