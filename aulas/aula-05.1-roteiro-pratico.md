@@ -968,7 +968,15 @@ No `README.md`, **confira** se o roadmap da Sprint 05 já indica **testes, empac
 
 A licença informa sob quais condições outras pessoas podem utilizar, estudar, modificar e redistribuir o **código original** do projeto. Nesta sprint, adotaremos a **MIT License**. O arquivo será criado na **raiz do projeto**, ao lado do `README.md`.
 
-**No VSCode:** no Explorador, clique com o botão direito sobre a pasta principal `flappybird`, selecione **New File (Novo Arquivo)** e digite exatamente `LICENSE` (**sem `.txt` ou `.md`**).
+**No PowerShell (na raiz do projeto):** o comando `mkdir` cria **pastas**, não arquivos. Para criar o arquivo `LICENSE`, use `New-Item`:
+
+```powershell
+cd C:\Projetos\flappybird
+New-Item -Path . -Name "LICENSE" -ItemType File
+code LICENSE
+```
+
+O comando `code LICENSE` abre o arquivo no VSCode para colar o conteúdo a seguir. **Se o arquivo já existir, não repita `New-Item`**: abra-o diretamente com `code LICENSE`. Alternativamente, no Explorador do VSCode, clique com o botão direito na pasta `flappybird`, escolha **New File (Novo Arquivo)** e digite `LICENSE` (sem `.txt` ou `.md`).
 
 Copie **todo o conteúdo abaixo** e cole no arquivo `LICENSE`:
 
@@ -1084,15 +1092,52 @@ O primeiro comando deve retornar `True`. Execute `dist\FlappyBird.exe` e confirm
 ### 12.2 — Criar a primeira Release pela interface do GitHub
 
 1. Envie antes as alterações do projeto usando os comandos do **Passo 11**.
-2. Abra [o repositório oficial](https://github.com/wilson-luciano/flappybird) no navegador e acesse **Releases** (ou **Create a new release**, conforme a interface).
-3. Clique em **Draft a new release**.
-4. Em **Choose a tag**, crie `v0.5.0` a partir da branch `main`, caso essa tag ainda não exista.
-5. No título, escreva **Flappy Bird — Primeira versão jogável**.
-6. Na descrição, informe que é uma versão didática para Windows, as funcionalidades principais e eventuais limitações conhecidas.
-7. Em **Attach binaries by dropping them here or selecting them**, anexe o arquivo local `dist\FlappyBird.exe`.
-8. Confira o arquivo anexado, o nome `FlappyBird.exe`, a tag e a autorização de distribuição. Só então clique em **Publish release**.
+2. Abra [o repositório oficial](https://github.com/wilson-luciano/flappybird), entre em **Releases** e clique em **Draft a new release**.
+3. Em **Tag: Select tag**, digite **`v0.5.0`** e **selecione a opção de criar a nova tag** (por exemplo, *Create new tag: v0.5.0 on publish*). **Apenas digitar o texto não basta**: o campo deve deixar de mostrar `Select tag`. Se a tag já existir, selecione-a.
+4. Em **Target**, mantenha **`main`**, verificando que contém os commits finais da Sprint 05.
+5. Em **Release title**, escreva **`Flappy Bird — Primeira versão jogável`**.
+6. Em **Release notes**, copie e cole o texto completo a seguir (não é necessário clicar em *Generate release notes*). Antes de publicar, ajuste qualquer funcionalidade que não tenha sido validada:
 
-**Atenção:** a tag `v0.5.0` identifica uma versão publicada do projeto; não é a mesma coisa que o número de versão dos documentos da aula. Para publicar uma atualização, crie outra tag, por exemplo `v0.5.1`, em vez de substituir silenciosamente a anterior.
+```markdown
+# 🎮 Flappy Bird — Primeira versão jogável
+
+Primeira versão jogável para Windows do projeto didático **Flappy Bird**, desenvolvido com **Python e Pygame**.
+
+## Funcionalidades
+- Controle do pássaro, obstáculos e colisões.
+- Pontuação, vidas e recorde persistente.
+- Pausa, efeitos sonoros e alternância de cenários.
+- Tela de encerramento, medalhas e reinício da partida.
+
+## Como jogar
+1. Em **Assets**, clique em `FlappyBird.exe`.
+2. Aguarde o download e verifique a procedência do arquivo.
+3. Execute no Windows. Não é necessário instalar Python ou Pygame separadamente.
+
+**Segurança:** o Windows pode apresentar um aviso do Microsoft Defender SmartScreen para aplicativos novos e sem assinatura digital. Verifique o arquivo com o antivírus e não desative as proteções do sistema.
+
+## Licença e créditos
+Código-fonte original sob licença MIT (arquivo `LICENSE`). Imagens e áudios de terceiros podem ter licenças próprias.
+
+**Wilson Luciano** — Professor Titular e Pesquisador, Universidade Federal de Sergipe (UFS).  
+Repositório: https://github.com/wilson-luciano/flappybird
+```
+
+7. Em **Attach binaries by dropping them here or selecting them**, clique para escolher o arquivo: no explorador do Windows, entre na pasta **`dist` do projeto**, selecione **`FlappyBird.exe`** e clique em **Abrir**. O caminho local do computador **não é publicado**: somente o arquivo anexado aparecerá na Release.
+8. Aguarde o upload e confira que o anexo se chama exatamente **`FlappyBird.exe`**.
+9. Em **Release label**, mantenha **None**; não selecione **Pre-release**.
+10. Confira tag, branch, título, notas, arquivo anexado e permissões de redistribuição. Clique em **Publish release**.
+11. Abra a página publicada e, em **Assets**, baixe o `.exe` para testar o arquivo distribuído, preferencialmente em outro computador Windows.
+
+**Erro comum — "Make sure you have a valid tag" / "tag name can't be blank":** a tag não foi efetivamente selecionada. Volte ao campo **Select tag**, digite `v0.5.0` e **clique na opção de criação/seleção da tag**. É possível corrigir o rascunho sem descartá-lo.
+
+**Atenção:** `v0.5.0` identifica a Release do jogo, não a versão dos documentos da aula. Para publicar outra versão do programa, utilize uma nova tag, por exemplo `v0.5.1`, em vez de sobrescrever silenciosamente a anterior.
+
+### 12.2.1 — Aviso do Microsoft Defender SmartScreen
+
+Ao executar um programa novo baixado da internet, o Windows pode mostrar **"O Windows protegeu o computador"**. Esse aviso pode estar relacionado à reputação ainda não estabelecida do aplicativo ou à ausência de assinatura digital; **não prova que o arquivo seja malicioso, mas também não garante que seja seguro**.
+
+Antes de executar, confirme que o download veio da Release oficial e analise o arquivo com o **Microsoft Defender**. Se a procedência e a verificação forem satisfatórias, o Windows pode oferecer **Mais informações** e, conforme sua política de segurança, **Executar assim mesmo**. **Não desative o SmartScreen nem o antivírus**. Se houver detecção de ameaça ou dúvida sobre o arquivo, não o execute; procure orientação do professor.
 
 ### 12.3 — Criar o destaque de download no README
 
