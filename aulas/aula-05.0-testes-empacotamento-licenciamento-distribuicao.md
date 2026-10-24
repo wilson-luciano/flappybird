@@ -173,13 +173,16 @@ A MIT não transfere automaticamente direitos sobre **imagens, músicas, efeitos
 
 ## 11. Git, GitHub e Releases
 
+O comando **`git clone`** cria a primeira cópia local de um repositório; **`git pull`** busca e integra alterações remotas em uma cópia Git já existente. Antes do `pull`, utilize `git status` para verificar possíveis alterações locais. O arquivo ZIP baixado pelo navegador não contém o histórico Git necessário para usar `pull` diretamente.
+
+
 O repositório oficial do projeto é **https://github.com/wilson-luciano/flappybird**. Os alunos podem acessar **Code → Download ZIP** para obter o código e os materiais; quem já utiliza Git pode executar:
 
 ```powershell
 git clone https://github.com/wilson-luciano/flappybird.git
 ```
 
-**`git push`** envia os commits do repositório remoto, enquanto **GitHub Releases** organiza versões distribuíveis do programa e permite anexar arquivos binários, como `FlappyBird.exe`.
+**`git push`** envia os commits do **repositório local para o repositório remoto**, enquanto **GitHub Releases** organiza versões distribuíveis do programa e permite anexar arquivos binários, como `FlappyBird.exe`.
 
 Após gerar e testar o executável, o arquivo local estará em:
 
@@ -200,6 +203,10 @@ https://github.com/wilson-luciano/flappybird/releases/latest/download/FlappyBird
 Esse link só deve ser anunciado como download disponível depois de sua publicação e teste. O README poderá apresentar um botão em destaque no início da página, convidando o visitante a experimentar o jogo sem instalar Python ou Pygame.
 
 O `.gitignore` continuará excluindo `.venv/`, `/data/`, `build/` e `dist/`; o executável deve ser anexado à Release, **não adicionado ao commit**. A pasta `tests/` permanecerá com `.gitkeep` nesta versão.
+
+### Avisos de segurança ao distribuir executáveis
+
+Um executável recém-publicado, especialmente sem assinatura digital, pode apresentar o aviso **Microsoft Defender SmartScreen** no Windows. Esse aviso não comprova a presença de malware nem certifica a segurança do arquivo. Verifique a origem, faça a análise com o antivírus e não desative as proteções do sistema. O procedimento detalhado de download e verificação está na Aula 05.1.
 
 ## 12. Critérios de aceitação da Sprint 05
 

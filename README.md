@@ -14,13 +14,15 @@
 
 ## 🎮 Baixe e jogue — Windows
 
-**Quer experimentar o jogo pronto?** Consulte as [versões e downloads do Flappy Bird](https://github.com/wilson-luciano/flappybird/releases). Quando a primeira versão jogável estiver publicada, o arquivo `FlappyBird.exe` aparecerá nos **Assets** da respectiva Release.
+**Quer experimentar o jogo pronto?** Consulte as [versões e downloads do Flappy Bird](https://github.com/wilson-luciano/flappybird/releases). Em uma versão publicada que contenha o jogo, o arquivo `FlappyBird.exe` aparecerá nos **Assets** da respectiva Release.
 
 **[📥 Ver versões disponíveis e baixar o jogo](https://github.com/wilson-luciano/flappybird/releases)**
 
-> **Nota:** o botão de download direto do `.exe` será adicionado após a publicação e o teste da Release. Até lá, o link acima permite consultar as versões efetivamente disponíveis, sem anunciar um arquivo que ainda pode não existir.
+> **Download direto:** a tag `v0.5.0` foi criada. Para evitar indicar um download não verificado, o acesso acima leva à página oficial de Releases. Depois de confirmar que o anexo `FlappyBird.exe` está disponível e testar seu download, o botão poderá apontar diretamente para `https://github.com/wilson-luciano/flappybird/releases/latest/download/FlappyBird.exe`.
 
 O executável para Windows é preparado para funcionar sem instalar Python ou Pygame separadamente. Para estudar ou modificar o código, baixe o projeto na seção seguinte.
+
+**Segurança no Windows:** executáveis novos e sem assinatura digital podem acionar o aviso do **Microsoft Defender SmartScreen**. Baixe apenas da Release oficial, confira a procedência, analise o arquivo com o Microsoft Defender e **não desative** as proteções do sistema. Se houver detecção de ameaça ou dúvida, não execute o arquivo.
 
 ## 🎯 Objetivos de aprendizagem
 
@@ -84,7 +86,7 @@ flappybird/
 ├── src/main.py       # código evolutivo do jogo
 ├── tests/.gitkeep     # espaço reservado para testes futuros
 ├── .gitignore
-├── LICENSE            # licença MIT do código original (após inclusão)
+├── LICENSE            # licença MIT do código original
 ├── README.md
 └── requirements.txt
 ```
@@ -101,11 +103,11 @@ flappybird/
 
 O arquivo `FlappyBird.exe` pode ser executado no Windows sem exigir a instalação separada de Python ou Pygame. A pasta `dist/` é uma saída local de compilação e **não precisa ser enviada ao repositório Git**. Para disponibilizar o programa, anexe o `.exe` à Release, conforme o Passo 12 da Aula 05.1. Para baixá-lo, abra [Releases](https://github.com/wilson-luciano/flappybird/releases), selecione uma versão publicada e, em **Assets**, clique em `FlappyBird.exe`.
 
-**Quando a redistribuição for autorizada**, após a verificação das licenças dos recursos gráficos e sonoros, o executável poderá ser publicado na seção **Releases** do repositório no GitHub. Até lá, a existência de um executável local não significa que ele esteja disponível para download público.
+**Distribuição:** o executável deve ser anexado à Release para ficar disponível ao público. Antes de redistribuir recursos gráficos e sonoros, confirme as permissões aplicáveis; o código original possui licença MIT, mas ela não abrange automaticamente recursos de terceiros.
 
 ## 🔐 Licenciamento e direitos de uso
 
-O **código-fonte original** do projeto será disponibilizado sob a licença **MIT**, documentada no arquivo `LICENSE`. Imagens, áudios e outros materiais de terceiros não são automaticamente abrangidos por essa licença. A distribuição pública deve respeitar as permissões aplicáveis a esses recursos.
+O **código-fonte original** do projeto é disponibilizado sob a licença **MIT**, documentada no arquivo `LICENSE`. Imagens, áudios e outros materiais de terceiros não são automaticamente abrangidos por essa licença. A distribuição pública deve respeitar as permissões aplicáveis a esses recursos.
 
 ## 🔐 GitHub e direitos de uso
 
@@ -115,3 +117,15 @@ O projeto de referência está em [github.com/wilson-luciano/flappybird](https:/
 
 © 2026 **Wilson Luciano** · **Programação para Engenharia Mecânica** · **Departamento de Engenharia Mecânica (DMEC)** · **Universidade Federal de Sergipe (UFS)**.  
 Material didático do projeto **Flappy Bird com Python e Pygame**.
+
+## 🔄 Atualizar o projeto clonado
+
+Para receber novas alterações do professor, dentro da pasta do projeto:
+
+```powershell
+cd C:\Projetos\flappybird
+git status
+git pull origin main
+```
+
+O `git clone` é usado para obter a primeira cópia com histórico Git; o `git pull` atualiza uma cópia já clonada. Verifique alterações locais antes de atualizar, pois podem ocorrer conflitos. Quem utilizou **Download ZIP** deverá baixar outro ZIP para obter uma nova versão ou configurar Git separadamente.
